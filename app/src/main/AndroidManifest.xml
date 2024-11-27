@@ -2,8 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.CAMERA"    tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
-    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
 
     <application
         android:allowBackup="true"
@@ -16,6 +23,14 @@
         android:theme="@style/Theme.DynamicRiseUp"
         tools:targetApi="31">
         <activity
+            android:name=".alarm.AlarmEndActivity"
+            android:exported="false" />
+        <activity
+            android:name=".alarm.CustomCaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomCaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -24,6 +39,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".alarm.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

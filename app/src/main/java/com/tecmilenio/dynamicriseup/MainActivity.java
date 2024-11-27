@@ -1,16 +1,23 @@
 package com.tecmilenio.dynamicriseup;
 
+import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.tecmilenio.dynamicriseup.alarm.AlarmEndActivity;
 import com.tecmilenio.dynamicriseup.alarm.AlarmFragment;
 import com.tecmilenio.dynamicriseup.home.HomeFragment;
+import com.tecmilenio.dynamicriseup.alarm.SensorHandler;
 
 public class MainActivity extends AppCompatActivity {
+
+    private SensorHandler sensorHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Cargar el fragmento de inicio por defecto
-        if (savedInstanceState == null) {
-            loadFragment(new HomeFragment());
+        // Manejar el Intent recibido al iniciar la aplicación
+        if (getIntent().getBooleanExtra("openAlarmFragment", false)) {
+            loadFragment(new AlarmFragment());
+        } else {
+            loadFragment(new HomeFragment()); // Fragmento predeterminado
         }
 
-        // Manejo de la navegación
+        // Configuración del BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             if (item.getItemId() == R.id.navigation_alarms) {
@@ -43,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Método para cargar el fragmento seleccionado
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
             getSupportFragmentManager()
