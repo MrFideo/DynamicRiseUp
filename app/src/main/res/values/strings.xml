@@ -2,4 +2,6 @@
     <string name="app_name">DynamicRiseUp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_icon">Icono de Inicio</string>
+    <string name="align_prompt">Alinea el dispositivo para escanear.</string>
+    <string name="aligned_message">¡Sensores alineados correctamente! Escanea el QR.</string>
 </resources>

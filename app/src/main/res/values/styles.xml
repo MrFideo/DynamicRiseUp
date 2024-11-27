@@ -1,0 +1,7 @@
+<resources>
+    <style name="CustomCaptureTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#171820</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#fdc029</item>
+    </style>
+</resources>

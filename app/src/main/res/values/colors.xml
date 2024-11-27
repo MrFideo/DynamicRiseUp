@@ -7,5 +7,11 @@
     <color name="secondary_orange">#df861d</color>
     <color name="accent_red">#aa3d00</color>
     <color name="neutral_gray">#bcb6af</color>
+    <color name="background_color_contrast">#FFFFFF</color>
+    <color name="primary_yellow_contrast">#000000</color>
+    <color name="secondary_orange_contrast">#FFFFFF</color>
+    <color name="accent_red_contrast">#FFFFFF</color>
+    <color name="neutral_gray_contrast">#000000</color>
+
 
 </resources>
